@@ -1,6 +1,6 @@
 import sqlite3
 
-connection = sqlite3.connect('not_telegram2.db')
+connection = sqlite3.connect('db14_2.db')
 cursor = connection.cursor()
 
 cursor.execute('''
@@ -35,15 +35,10 @@ for user in users:
 cursor.execute('DELETE FROM Users WHERE id = ?', ('6',))
 
 cursor.execute('SELECT COUNT(*) FROM Users')
-
 count = cursor.fetchone()[0]
-
 cursor.execute('SELECT SUM(balance) FROM Users')
-
 sum_balance = cursor.fetchone()[0]
-
 cursor.execute('SELECT AVG(balance) FROM Users')
-
 avg_balance = cursor.fetchone()[0]
 
 print(avg_balance, sum_balance//count)
